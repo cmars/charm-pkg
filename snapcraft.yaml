@@ -1,0 +1,23 @@
+name: charm
+version: 2.0.2
+summary: charm and charm-tools
+description: charmstore-client and charm-tools
+confinement: devmode
+
+apps:
+  charm:
+    command: bin/charm
+    plugs: [network, network-bind, home]
+
+parts:
+  charm:
+    plugin: godeps
+    go-importpath: github.com/juju/charmstore-client
+    source: https://github.com/juju/charmstore-client.git
+    source-type: git
+    source-tag: 2.1.1
+  charm-tools:
+    plugin: python2
+    source: https://github.com/juju/charm-tools.git
+    stage-packages:
+      - python-launchpadlib
