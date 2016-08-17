@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export PREFIX=$SNAP
+export GIT_EXEC_PATH=$PREFIX/usr/lib/git-core
+export LC_ALL=C.UTF-8
+
+exec charm "$@"
