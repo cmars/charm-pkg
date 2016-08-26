@@ -1,5 +1,5 @@
 name: charm
-version: 2.1.2
+version: 2.1
 summary: charm and charm-tools
 description: charmstore-client and charm-tools
 confinement: strict
@@ -23,8 +23,8 @@ parts:
     source-type: git
   charm-tools:
     plugin: python2
-    source: https://github.com/marcoceppi/charm-tools.git
-    source-branch: remove-recursive
+    source: https://github.com/juju/charm-tools.git
+    source-branch: master
     stage-packages:
       - python-launchpadlib
       - bzr
@@ -35,6 +35,8 @@ parts:
     stage-packages:
       - git
     snap:
+      - -lib/*/libcrypto.so*
+      - -lib/*/libssl.so*
       - usr/bin/git*
       - usr/lib/git*
       - usr/lib/*/libasn1.so*
@@ -63,3 +65,5 @@ parts:
       - usr/lib/*/libsqlite3.so*
       - usr/lib/*/libtasn1.so*
       - usr/lib/*/libwind.so*
+      - -usr/lib/*/openssl-1.0.0*
+      - -usr/share/doc/libssl1.0.0*
